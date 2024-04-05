@@ -6,7 +6,7 @@ const RegisterComp = () => {
     <div>
         <nav class="flex bg-zinc-900 fixed w-full">
             <div class="flex gap-1 align-center text-center cursor-pointer ml-10 py-4">
-                <a href="/css/css/PROJECT2/Spotify.html"><p class="lg:text-2xl lg:font-bold text-white text-md">Pho<span className='text-green-600'>nart</span></p></a>
+                <Link to={'/'}><p class="lg:text-2xl lg:font-bold text-white text-md">Pho<span className='text-green-600'>nart</span></p></Link>
             </div>
         </nav>
 
