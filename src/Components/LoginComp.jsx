@@ -27,7 +27,7 @@ const RegisterComp = () => {
                 </div>
                 <button className='bg-green-600 lg:w-1/3 w-10/12 m-auto p-3 rounded-lg text-sm'>Login</button>
 
-                <p className='lg:w-1/3 w-10/12  m-auto text-xs'>Don't have an account? <Link to={'/'}><span className='text-green-600'>Register</span></Link></p>
+                <p className='lg:w-1/3 w-10/12  m-auto text-xs'>Don't have an account? <Link to={'/register'}><span className='text-green-600'>Register</span></Link></p>
 
             </div>
 
