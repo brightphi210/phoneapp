@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const RegisterComp = () => {
   return (
     <div>
-        <nav class="flex bg-zinc-950 fixed w-full">
+        <nav class="flex bg-zinc-900 fixed w-full">
             <div class="flex gap-1 align-center text-center cursor-pointer ml-10 py-6">
                 <a href="/css/css/PROJECT2/Spotify.html"><p class="lg:text-3xl lg:font-bold text-white text-md">Pho<span className='text-green-600'>nart</span></p></a>
             </div>
