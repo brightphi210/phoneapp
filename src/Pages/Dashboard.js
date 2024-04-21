@@ -7,7 +7,7 @@ const Dashboard = () => {
 
 
 
-    let [tokentoken, setAuthTokens] = useState(()=> localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')) : null)
+    let [token, setAuthTokens] = useState(()=> localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')) : null)
 
     const navigate = useNavigate()
 
@@ -19,35 +19,45 @@ const Dashboard = () => {
 
 
     const [number, setNumber] = useState('')
+    const [scarmAlert, setScamAlert] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
 
     const url = 'https://seven8nein.com/phonnart/api/call' 
 
-    const handleNumber = async (e) => {
-        e.preventDefault()
-
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+      
         console.log('Button Clicked');
-
+        setIsLoading(true);
+      
         try {
-            const res = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application',
-                    'Authorization': `Bearer ${tokentoken}`
-                },
+      
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json', // Corrected content type
+              'Authorization': `Bearer ${token}` // Assuming 'token' is defined elsewhere
+            },
+            body: JSON.stringify({ number })
+          });
+          
+          // setIsLoading(false);
+          if (response.status===200) { 
+            setScamAlert('false')
+          }
 
-                body : JSON.stringify({
-                    number
-                })
-            })
 
-
-            if(res.statusCode === 200){
-                console.log(res.body)
-            }
+          else if(response.status===400){
+            setScamAlert('true')
+          }
+      
+          const data = await response.json();
+          console.log('Success:', data);
         } catch (error) {
-            
+          console.error('Error:', error.message); // Log the error message
         }
-    }
+      };
+      
   return (
     <div>
         <nav class="flex justify-around bg-zinc-900 fixed w-full ">
@@ -60,8 +70,8 @@ const Dashboard = () => {
 
         <div className='pt-40 flex justify-center w-full'>
             <div className='lg:flex lg:flex-row w-full justify-around lg:px-96 lg:gap-40 flex flex-col gap-5 px-10'>
-                <PhoneOne setNumber={setNumber} handleNumber={handleNumber}/>
-                <PhoneTwo />
+                <PhoneOne setNumber={setNumber} handleSubmit={handleSubmit} scarmAlert={scarmAlert} isLoading={isLoading}/>
+                <PhoneTwo scarmAlert={scarmAlert} isLoading={isLoading} setIsLoading={setIsLoading}/>
             </div>
         </div>
     </div>
