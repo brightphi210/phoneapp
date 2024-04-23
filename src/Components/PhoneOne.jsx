@@ -8,7 +8,7 @@ const PhoneOne = ({setNumber, handleSubmit, scarmAlert, isLoading}) => {
     setNumber(e.target.value)
   }
   return (
-    <form onSubmit={handleSubmit} className='bg-zinc-900 w-full h-[32rem] md:h-[32rem] lg:h-[38rem]  rounded-[1rem] relative'>
+    <form onSubmit={handleSubmit} className='bg-zinc-900 w-full h-[32rem] md:h-[32rem] lg:h-[45rem]  rounded-[1rem] relative'>
         {/* <h2 className='text-center pt-10 text-md font-bold'>Phone One</h2> */}
 
 

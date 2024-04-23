@@ -14,7 +14,7 @@ function App() {
             <Route path="/register" element={<Register />}/>
 
             <Route element={<PrivateRoute />}>
-              <Route path="/" element={<Dashboard />}/>
+              <Route path="/dashboard" element={<Dashboard />}/>
             </Route>
           </Routes>
         </BrowserRouter>

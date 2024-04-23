@@ -3,12 +3,13 @@ import image1 from './images/default.png'
 import audio1 from './images/numberScarm.mp3'
 import audio2 from './images/numberVerified.mp3'
 import audio3 from './images/callAnswered.mp3'
+import audio4 from './images/callDeclined.mp3'
 import icon from './images/freepik-export-202404231552168XXH.png'
 
-const PhoneTwo = ({handleCancle, scarmAlert, handleAccept}) => {
+const PhoneTwo = ({handleCancle, scarmAlert, handleAccept, handleDeclined}) => {
 
   return (
-<div className='bg-zinc-900 w-full h-[32rem] md:h-[32rem] lg:h-[38rem] mb-10 lg:m-0 rounded-[1rem] relative'>
+<div className='bg-zinc-900 w-full h-[32rem] md:h-[32rem] lg:h-[45rem] mb-10 lg:m-0 rounded-[1rem] relative'>
         {/* <h2 className='text-center pt-10 text-md font-bold'>Phone One</h2> */}
 
         <div className=''>
@@ -56,18 +57,37 @@ const PhoneTwo = ({handleCancle, scarmAlert, handleAccept}) => {
               )
             }
 
+            {
+              scarmAlert === 'declined' && (
+                <div className='justify-center items-center text-center pt-0'>
+                <h2 className='text-center pt-32 text-3xl'>Call Declined</h2>
+                <audio controls autoPlay src={audio4} type="audio/ogg" className='text-center flex m-auto mt-10'/>
+              </div>
+              )
+            }
+
 
         </div>
 
         <div className='flex gap-5 absolute bottom-10 left-0 right-0 px-10'>
 
           <button 
-            onClick={handleCancle}
+            onClick={handleDeclined}
             className='bg-red-600 p-3 w-10/12 
               m-auto flex text-center justify-center 
               rounded-md  hover:bg-red-500 hover:transition-all'
             >
               Decline
+          </button>
+
+
+          <button 
+            onClick={handleCancle}
+            className='bg-orange-600 p-3 w-10/12 
+              m-auto flex text-center justify-center 
+              rounded-md  hover:bg-orange-red-500 hover:transition-all'
+            >
+              Re-Start
           </button>
 
 

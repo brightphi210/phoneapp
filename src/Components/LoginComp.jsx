@@ -36,7 +36,7 @@ const RegisterComp = () => {
             if (res.ok ) {
                 const data = await res.json();
                 setIsLoading(false)
-                navigate('/');
+                navigate('/dashboard');
                 console.log(data.token)
                 localStorage.setItem('token', JSON.stringify(data.token));
                 // localStorage.setItem('token', JSON.stringify(data))

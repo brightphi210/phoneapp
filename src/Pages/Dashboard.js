@@ -53,7 +53,7 @@ const Dashboard = () => {
       } catch (error) {
         console.error('Error:', error.message);
       } finally {
-        setIsLoading(false);
+        // setIsLoading(false);
       }
     };
     
@@ -66,6 +66,11 @@ const Dashboard = () => {
 
       const handleAccept = () => {
         setScamAlert('accepted');
+        setIsLoading(false);
+      }
+
+      const handleDeclined = () => {
+        setScamAlert('declined');
         setIsLoading(false);
       }
 
@@ -83,7 +88,7 @@ const Dashboard = () => {
         <div className='lg:pt-40 flex justify-center w-full pt-28 lg:mb-10'>
             <div className='lg:flex lg:flex-row w-full justify-around lg:px-80 lg:gap-20 flex flex-col gap-5 px-5'>
                 <PhoneOne setNumber={setNumber} handleSubmit={handleSubmit} scarmAlert={scarmAlert} isLoading={isLoading}/>
-                <PhoneTwo scarmAlert={scarmAlert} setScamAlert={setScamAlert} handleAccept={handleAccept} isLoading={isLoading} setIsLoading={setIsLoading} handleCancle={handleCancle} />
+                <PhoneTwo scarmAlert={scarmAlert} setScamAlert={setScamAlert} handleDeclined={handleDeclined} handleAccept={handleAccept} isLoading={isLoading} setIsLoading={setIsLoading} handleCancle={handleCancle} />
             </div>
         </div>
     </div>
