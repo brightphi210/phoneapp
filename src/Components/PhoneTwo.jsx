@@ -69,13 +69,13 @@ const PhoneTwo = ({handleCancle, scarmAlert, handleAccept, handleDeclined}) => {
 
         </div>
 
-        <div className='flex gap-5 absolute bottom-10 left-0 right-0 px-10'>
+        <div className='flex gap-5 absolute bottom-10 left-0 right-0 lg:px-10 px-5'>
 
           <button 
             onClick={handleDeclined}
             className='bg-red-600 p-3 w-10/12 
               m-auto flex text-center justify-center 
-              rounded-md  hover:bg-red-500 hover:transition-all'
+              rounded-md  hover:bg-red-500 hover:transition-all lg:text-lg text-xs'
             >
               Decline
           </button>
@@ -85,7 +85,7 @@ const PhoneTwo = ({handleCancle, scarmAlert, handleAccept, handleDeclined}) => {
             onClick={handleCancle}
             className='bg-orange-600 p-3 w-10/12 
               m-auto flex text-center justify-center 
-              rounded-md  hover:bg-orange-red-500 hover:transition-all'
+              rounded-md  hover:bg-orange-red-500 hover:transition-all lg:text-lg text-xs'
             >
               Re-Start
           </button>
@@ -95,7 +95,7 @@ const PhoneTwo = ({handleCancle, scarmAlert, handleAccept, handleDeclined}) => {
             onClick={handleAccept}
             className='bg-green-600 p-3 w-10/12 
               m-auto flex text-center justify-center 
-              rounded-md hover:bg-green-500 hover:transition-all'
+              rounded-md hover:bg-green-500 hover:transition-all lg:text-lg text-xs'
             >
               Accept
           </button>
