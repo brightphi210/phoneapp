@@ -79,7 +79,7 @@ const Dashboard = () => {
     <div>
         <nav class="flex justify-around bg-zinc-900 fixed w-full z-50">
             <div class="flex  gap-1 align-center text-center cursor-pointer ml-10 py-4">
-                <Link to={'/'}><p class="lg:text-2xl lg:font-bold text-white text-md">Pho<span className='text-green-600'>nart</span></p></Link>
+                <Link to={'/dashboard'}><p class="lg:text-2xl lg:font-bold text-white text-md">Pho<span className='text-green-600'>nart</span></p></Link>
             </div>
             <button className='' onClick={logout}>Logout</button>
         </nav>
