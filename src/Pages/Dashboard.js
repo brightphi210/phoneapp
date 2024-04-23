@@ -22,51 +22,41 @@ const Dashboard = () => {
     const [scarmAlert, setScamAlert] = useState('')
     const [isLoading, setIsLoading] = useState(false)
 
-    const abortControllerRef = useRef(null);
 
-    const url = 'https://seven8nein.com/phonnart/api/call' 
+    const url = 'https://seven8nein.com/phonnart/api/call';
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        abortControllerRef.current = new AbortController();
-        const signal = abortControllerRef.current.signal;
-      
-        console.log('Button Clicked');
-        setIsLoading(true);
-      
-        try {
-      
-          const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({ number }),
-            signal
-          });
-          
-          // setIsLoading(false);
-          if (response.status===200) { 
-            setScamAlert('false')
-          }
-
-
-          else if(response.status===400){
-            setScamAlert('true')
-          }
-
-          const data = await response.json();
-          console.log('Success:', data);
-        } catch (error) {
-          console.error('Error:', error.message); // Log the error message
+      e.preventDefault();
+    
+      console.log('Button Clicked');
+      setIsLoading(true);
+    
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify({ number }),
+        });
+    
+        const data = await response.json();
+    
+        if (data.scam === false) {
+          setScamAlert('false');
+        } else if (data.scam === true) {
+          setScamAlert('true');
         }
-
-        finally {
-          abortControllerRef.current = null;
-        }
-      };
+    
+        console.log(data.scam);
+      } catch (error) {
+        console.error('Error:', error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
 
 
       const handleCancle = () => {

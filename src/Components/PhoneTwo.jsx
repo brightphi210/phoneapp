@@ -22,7 +22,7 @@ const PhoneTwo = ({handleCancle, scarmAlert, handleAccept}) => {
 
               <div>
                 <h2 className='text-center pt-32 text-3xl'>Incoming Call . . .</h2>
-                <audio controls autoPlay src={audio2} type="audio/ogg" loop className='text-center flex m-auto mt-10'/>
+                <audio controls autoPlay src={audio1} type="audio/ogg" loop className='text-center flex m-auto mt-10'/>
               </div>
 
             )}
@@ -31,7 +31,7 @@ const PhoneTwo = ({handleCancle, scarmAlert, handleAccept}) => {
               scarmAlert === 'false' && (
                 <div>
                   <h2 className='text-center pt-32 text-3xl'>Incoming Call . . .</h2>
-                  <audio controls autoPlay src={audio1} type="audio/ogg" loop className='text-center flex m-auto mt-10'/>
+                  <audio controls autoPlay src={audio2} type="audio/ogg" loop className='text-center flex m-auto mt-10'/>
               </div>
               )
             }
