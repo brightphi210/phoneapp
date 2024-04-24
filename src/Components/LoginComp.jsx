@@ -36,10 +36,9 @@ const RegisterComp = () => {
             if (res.ok ) {
                 const data = await res.json();
                 setIsLoading(false)
-                console.log(data.token)
                 localStorage.setItem('token', JSON.stringify(data.token));
+                console.log(data.token)
                 navigate('/');
-                
             }
       
       
