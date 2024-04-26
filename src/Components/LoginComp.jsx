@@ -7,6 +7,7 @@ const RegisterComp = () => {
     const url = 'https://seven8nein.com/phonnart/api/login'
 
 
+    const [message, setMessage] = useState('')
     const [number, setNumber] = useState('')
     const [password, setPassword] = useState('')
 
@@ -32,8 +33,16 @@ const RegisterComp = () => {
                 
             })
 
+            
+            if(res.status === 400){
+                navigate('/login')
+                setMessage('Invalid Credentials!!')
+                console.log('No account found with the given credentials')
+                setIsLoading(false)
+            }
 
-            if (res.ok || res.status === 200) {
+
+            else if (res.status === 200) {
                 setIsLoading(false)
                 const data = await res.json();
                 localStorage.setItem('token', JSON.stringify(data.token));
@@ -41,11 +50,7 @@ const RegisterComp = () => {
                 navigate('/');
             }
       
-      
-            else if(res.status === 401){
-              console.log('No account found with the given credentials')
-              setIsLoading(false)
-            }else {
+            else {
                 console.log('This Error occured while logging in');
                 setIsLoading(false);
             }
@@ -61,7 +66,7 @@ const RegisterComp = () => {
             </div>
         </nav>
 
-
+        <h2 className='text-center text-lg text-red-400'>{message}</h2>
         <form className='flex justify-center items-center h-screen w-full' onSubmit={handleLogin}>
             <div className='w-full flex flex-col gap-7'>
                 <h2 className='text-center lg:text-2xl font-bold text-lg'>Login to Pho<span className='text-green-600'>nart</span></h2>
