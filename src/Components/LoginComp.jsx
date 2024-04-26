@@ -33,11 +33,11 @@ const RegisterComp = () => {
             })
 
 
-            if (res.ok ) {
-                const data = await res.json();
+            if (res.ok || res.status === 200) {
                 setIsLoading(false)
+                const data = await res.json();
                 localStorage.setItem('token', JSON.stringify(data.token));
-                console.log(data.token)
+                console.log(data)
                 navigate('/');
             }
       
