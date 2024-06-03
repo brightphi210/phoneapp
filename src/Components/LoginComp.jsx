@@ -33,18 +33,18 @@ const RegisterComp = () => {
                 
             })
 
+            const data = await res.json();
             
-            if(res.status === 400){
-                navigate('/login')
+            if(data.status === 400){
                 setMessage('Invalid Credentials!!')
                 console.log('No account found with the given credentials')
                 setIsLoading(false)
+                setMessage('No account found with the given credentials')
             }
 
 
-            else if (res.status === 200) {
+            else if (data.status === 200) {
                 setIsLoading(false)
-                const data = await res.json();
                 localStorage.setItem('token', JSON.stringify(data.token));
                 console.log(data)
                 navigate('/');
@@ -82,6 +82,7 @@ const RegisterComp = () => {
                     <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Enter Password: " className="input input-bordered bg-zinc-950 text-xs  rounded-lg lg:p-8 p-6" />
                 </div>
                 <button type='submit' className='bg-green-600 lg:w-1/3 w-10/12 m-auto p-3 rounded-lg text-sm'>{isLoading ? 'Loading . . ' : 'Login'}</button>
+                <p className='text-center text-sm text-red-400'>{message}</p>
 
                 <p className='lg:w-1/3 w-10/12  m-auto text-xs'>Don't have an account? <Link to={'/register'}><span className='text-green-600'>Register</span></Link></p>
 
