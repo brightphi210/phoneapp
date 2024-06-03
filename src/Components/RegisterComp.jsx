@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const RegisterComp = () => {
+
+    const navigate = useNavigate()
 
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
     const [password, setPassword] = useState('');
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const url = 'https://seven8nein.com/phonnart/api/register';
 
     const handFetch = async (e) => {
+        setIsLoading(true);
         e.preventDefault();
         try {
             const res = await fetch(url, {
@@ -23,10 +28,17 @@ const RegisterComp = () => {
                     password: password
                 })
             });
-            const data = await res.json();
-            console.log(data); // Do something with the response data
+
+                const data = await res.json();
+                setIsLoading(false);
+
+                if(data.status === 200){
+                    console.log(data);
+                    navigate('/')
+                }
         } catch (error) {
             console.log(error);
+            setIsLoading(false);
         }
     };
 
@@ -79,7 +91,7 @@ const RegisterComp = () => {
                             className="input input-bordered bg-zinc-950 text-xs rounded-lg lg:p-8 p-6"
                         />
                     </div>
-                    <button className='bg-green-600 lg:w-1/3 w-10/12 m-auto p-3 rounded-lg text-sm'>Register</button>
+                    <button className='bg-green-600 lg:w-1/3 w-10/12 m-auto p-3 rounded-lg text-sm'>{isLoading === true ? 'Loading. .' : 'Register'}</button>
 
                     <p className='lg:w-1/3 w-10/12 m-auto text-xs'>Already have an account? <Link to={'/'}><span className='text-green-600'>Login</span></Link></p>
                 </div>
