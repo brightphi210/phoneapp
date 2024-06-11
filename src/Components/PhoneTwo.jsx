@@ -41,6 +41,8 @@ const PhoneTwo = ({handleCancle, scarmAlert, handleAccept, handleDeclined}) => {
         console.log(data)
         document.getElementById('my_modal_3').close()
         document.getElementById('my_modal_2').showModal()
+        setNumber('')
+        setRemark('')
       }
   
 
