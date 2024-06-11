@@ -74,6 +74,9 @@ const Dashboard = () => {
         setIsLoading(false);
       }
 
+
+
+
       
   return (
     <div>
@@ -86,7 +89,7 @@ const Dashboard = () => {
 
 
         <div className='lg:pt-40 flex justify-center w-full pt-28 lg:mb-10'>
-            <div className='lg:flex lg:flex-row w-full justify-around lg:px-80 lg:gap-20 flex flex-col gap-5 px-5'>
+            <div className='lg:flex lg:flex-row w-full justify-around 2xl:px-80 xl:px-40 lg:px-40 lg:gap-20 flex flex-col gap-5 px-5'>
                 <PhoneOne setNumber={setNumber} handleSubmit={handleSubmit} scarmAlert={scarmAlert} isLoading={isLoading}/>
                 <PhoneTwo scarmAlert={scarmAlert} setScamAlert={setScamAlert} handleDeclined={handleDeclined} handleAccept={handleAccept} isLoading={isLoading} setIsLoading={setIsLoading} handleCancle={handleCancle} />
             </div>
