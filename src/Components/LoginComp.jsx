@@ -47,7 +47,7 @@ const RegisterComp = () => {
                 setIsLoading(false)
                 localStorage.setItem('token', JSON.stringify(data.token));
                 console.log(data)
-                navigate('/');
+                navigate('/dashboard');
             }
       
             else {
@@ -55,11 +55,11 @@ const RegisterComp = () => {
                 setIsLoading(false);
             }
         } catch (error) {
-            
+            setIsLoading(false);
         }
     }
   return (
-    <div>
+    <div className='bg-black text-white'>
         <nav class="flex bg-zinc-900 fixed w-full">
             <div class="flex gap-1 align-center text-center cursor-pointer ml-10 py-4">
             <Link to={'/'}><p class="lg:text-2xl lg:font-bold text-white text-md">Pho<span className='text-green-600'>nart</span></p></Link>
@@ -74,20 +74,18 @@ const RegisterComp = () => {
 
                 <div className='flex flex-col lg:w-1/3 w-10/12  m-auto '>
                     <p className='text-left lg:text-lg text-xs lg:font-bold font-medium pb-2'>Phone Number: </p>
-                    <input value={number} onChange={(e)=>setNumber(e.target.value)} type="text" placeholder="Phone Number: " className="input input-bordered bg-zinc-950 text-xs  rounded-lg lg:p-8 p-6" />
+                    <input value={number} onChange={(e)=>setNumber(e.target.value)} type="text" required placeholder="Phone Number: " className="input input-bordered bg-zinc-950 text-xs  rounded-lg lg:p-8 p-6" />
                 </div>
 
                 <div className='flex flex-col lg:w-1/3 w-10/12  m-auto '>
                     <p className='text-left lg:text-lg text-xs lg:font-bold font-medium pb-2'>Password: </p>
-                    <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Enter Password: " className="input input-bordered bg-zinc-950 text-xs  rounded-lg lg:p-8 p-6" />
+                    <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" required placeholder="Enter Password: " className="input input-bordered bg-zinc-950 text-xs  rounded-lg lg:p-8 p-6" />
                 </div>
                 <button type='submit' className='bg-green-600 lg:w-1/3 w-10/12 m-auto p-3 rounded-lg text-sm'>{isLoading ? 'Loading . . ' : 'Login'}</button>
                 <p className='text-center text-sm text-red-400'>{message}</p>
 
                 <p className='lg:w-1/3 w-10/12  m-auto text-xs'>Don't have an account? <Link to={'/register'}><span className='text-green-600'>Register</span></Link></p>
-
             </div>
-
         </form>
     </div>
   )

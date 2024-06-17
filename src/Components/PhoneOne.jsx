@@ -8,17 +8,16 @@ const PhoneOne = ({setNumber, handleSubmit, scarmAlert, isLoading}) => {
     setNumber(e.target.value)
   }
   return (
-    <form onSubmit={handleSubmit} className='bg-zinc-900 w-full h-[32rem] md:h-[32rem] lg:h-[45rem]  rounded-[1rem] relative'>
+    <form onSubmit={handleSubmit} className='bg-zinc-900 text-white w-full h-[32rem] md:h-[32rem] lg:h-[45rem]  rounded-[1rem] relative'>
         {/* <h2 className='text-center pt-10 text-md font-bold'>Phone One</h2> */}
 
 
 
 
 
-          <div>
+          <div >
               <div className='pt-10'>
-                  <img src={image1} alt="" className='w-20 m-auto'/>
-                  <h2 className='text-center pt-2'>Bright Philip</h2>
+                  <h2 className='text-center pt-2'>Anonymous</h2>
 
 
                   {isLoading === true ? (

@@ -54,7 +54,7 @@ const PhoneTwo = ({handleCancle, scarmAlert, handleAccept, handleDeclined}) => {
   };
   return (
     
-      <div className='bg-zinc-900 w-full h-[32rem] md:h-[32rem] lg:h-[45rem] mb-10 lg:m-0 rounded-[1rem] relative'>
+      <div className='bg-zinc-900 text-white w-full h-[32rem] md:h-[32rem] lg:h-[45rem] mb-10 lg:m-0 rounded-[1rem] relative'>
         {/* <h2 className='text-center pt-10 text-md font-bold'>Phone One</h2> */}
 
         <div className=''>

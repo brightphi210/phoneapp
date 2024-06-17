@@ -34,7 +34,7 @@ const RegisterComp = () => {
 
                 if(data.status === 200){
                     console.log(data);
-                    navigate('/')
+                    navigate('/login')
                 }
         } catch (error) {
             console.log(error);
@@ -44,8 +44,8 @@ const RegisterComp = () => {
 
 
   return (
-    <div>
-        <nav class="flex bg-zinc-900 fixed w-full">
+    <div className='bg-black text-white'>
+        <nav class="flex bg-zinc-900 fixed w-full ">
             <div class="flex gap-1 align-center text-center cursor-pointer ml-10 py-4">
                 <Link to={'/'}><p class="lg:text-2xl lg:font-bold text-white text-md">Pho<span className='text-green-600'>nart</span></p></Link>
             </div>
@@ -64,6 +64,7 @@ const RegisterComp = () => {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             placeholder="Full Name"
+                            required
                             className="input input-bordered bg-zinc-950 text-xs rounded-lg lg:p-8 p-6"
                         />
                     </div>
@@ -76,6 +77,7 @@ const RegisterComp = () => {
                             value={number}
                             onChange={(e) => setNumber(e.target.value)}
                             placeholder="Phone Number"
+                            required
                             className="input input-bordered bg-zinc-950 text-xs rounded-lg lg:p-8 p-6"
                         />
                     </div>
@@ -88,12 +90,13 @@ const RegisterComp = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Password"
+                            required
                             className="input input-bordered bg-zinc-950 text-xs rounded-lg lg:p-8 p-6"
                         />
                     </div>
                     <button className='bg-green-600 lg:w-1/3 w-10/12 m-auto p-3 rounded-lg text-sm'>{isLoading === true ? 'Loading. .' : 'Register'}</button>
 
-                    <p className='lg:w-1/3 w-10/12 m-auto text-xs'>Already have an account? <Link to={'/'}><span className='text-green-600'>Login</span></Link></p>
+                    <p className='lg:w-1/3 w-10/12 m-auto text-xs'>Already have an account? <Link to={'/login'}><span className='text-green-600'>Login</span></Link></p>
                 </div>
             </form>
     </div>
