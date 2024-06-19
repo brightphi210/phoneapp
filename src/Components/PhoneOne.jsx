@@ -17,7 +17,7 @@ const PhoneOne = ({setNumber, handleSubmit, scarmAlert, isLoading}) => {
 
           <div >
               <div className='pt-10'>
-                  <h2 className='text-center pt-2'>Anonymous</h2>
+                  {/* <h2 className='text-center pt-2'>Anonymous</h2> */}
 
 
                   {isLoading === true ? (
