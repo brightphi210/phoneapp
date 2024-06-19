@@ -10,11 +10,14 @@ const PhoneTwo = ({handleCancle, scarmAlert, handleAccept, handleDeclined}) => {
   const url2 = 'https://seven8nein.com/phonnart/api/report';
 
   let [token, setAuthTokens] = useState(()=> localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')) : null)
+  let [myData, userData] = useState(()=> localStorage.getItem('data') ? JSON.parse(localStorage.getItem('data')) : null)
+
 
   const [number, setNumber] = useState('')
   const [remark, setRemark] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [report, setReport] = useState(false)
+
   const handleReport = async (e) => {
     e.preventDefault();
   
@@ -52,6 +55,9 @@ const PhoneTwo = ({handleCancle, scarmAlert, handleAccept, handleDeclined}) => {
       // setIsLoading(false);
     }
   };
+
+
+  console.log('This is ther data', myData);
   return (
     
       <div className='bg-zinc-900 text-white w-full h-[32rem] md:h-[32rem] lg:h-[45rem] mb-10 lg:m-0 rounded-[1rem] relative'>
@@ -60,7 +66,7 @@ const PhoneTwo = ({handleCancle, scarmAlert, handleAccept, handleDeclined}) => {
         <div className=''>
             <div className='pt-10 flex px-10'>
                 <img src={image1} alt="" className='w-10'/>
-                <h2 className='pt-2 ml-auto'>Obed John</h2>
+                <h2 className='pt-2 ml-auto'>{myData.username}</h2>
             </div>
 
 

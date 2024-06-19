@@ -46,6 +46,7 @@ const RegisterComp = () => {
             else if (data.status === 200) {
                 setIsLoading(false)
                 localStorage.setItem('token', JSON.stringify(data.token));
+                localStorage.setItem('data', JSON.stringify(data));
                 console.log(data)
                 navigate('/dashboard');
             }
